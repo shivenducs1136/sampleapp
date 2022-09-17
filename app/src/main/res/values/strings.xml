@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Say Nc</string>
+    <string-array name="levelArray">
+        <item>0s</item>
+        <item>2s</item>
+        <item>4s</item>
+        <item>6s</item>
+        <item>8s</item>
+        <item>12s</item>
+    </string-array>
+</resources>
