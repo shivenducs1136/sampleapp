@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity" android:layout_height="match_parent"  android:layout_width="match_parent"
+    tools:context=".MainActivity"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     >
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+        android:background="@drawable/background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="100dp"
             android:layout_height="72.3dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="65dp"
-            android:src="@drawable/saynclogo" />
+            android:src="@drawable/saynclogo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card0"
-        android:layout_below="@id/logo"
-        android:layout_width="380dp"
-        android:layout_height="42dp"
-        app:cardCornerRadius="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/i1"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/logo"
+            app:layout_constraintBottom_toTopOf="@id/card"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,56 +50,86 @@
                 android:layout_gravity="center"
                 android:text="Please turn on your  SayNc compatible device to start"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:autoSizeTextType="uniform"
+                android:padding="10dp"
+                android:textSize="16sp"
+                />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
-            android:layout_below="@id/card0"
-            android:layout_width="380dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="285dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            app:cardCornerRadius="10dp">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:padding="10dp"
+            >
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                >
                 <TextView
                     android:id="@+id/text1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:text="Tap button to speak and automatically send"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:autoSizeTextType="uniform"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
 
                 <TextView
                     android:id="@+id/listen"
                     android:layout_below="@id/text1"
-                    android:layout_width="183dp"
-                    android:layout_height="39dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/listen_button"
                     android:text="LISTEN"
                     android:textColor="@color/white"
                     android:gravity="center"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:elevation="12dp"
+                    app:layout_constraintLeft_toLeftOf="@id/text1"
+                    app:layout_constraintRight_toRightOf="@id/text1"
+                    app:layout_constraintTop_toBottomOf="@id/text1"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    />
                 <TextView
                     android:id="@+id/text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/listen"
                     android:layout_marginTop="16dp"
-                    android:text="..............................................................."
+                    android:text="........................................................."
                     android:layout_centerHorizontal="true"
+                    android:maxLines="1"
+                    android:autoSizeTextType="uniform"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/listen"
+                    app:layout_constraintLeft_toLeftOf="@id/listen"
+                    app:layout_constraintRight_toRightOf="@id/listen"
                     android:textColor="@color/black"/>
                 <TextView
                     android:id="@+id/text3"
@@ -99,148 +139,170 @@
                     android:layout_marginTop="18dp"
                     android:text="Or type the text in below and tap button to send"
                     android:layout_centerHorizontal="true"
+                    android:maxLines="1"
+                    android:autoSizeTextType="uniform"
                     android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/text2"
+                    app:layout_constraintLeft_toLeftOf="@id/text2"
+                    app:layout_constraintRight_toRightOf="@id/text2"
+
                     android:textColor="#0037CF"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inlayout"
-                    android:layout_width="342dp"
-                    android:layout_height="52dp"
-                    android:layout_centerHorizontal="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_below="@id/text3"
                     app:boxStrokeColor="#0037CF"
                     android:layout_marginTop="10dp"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusTopStart="12dp">
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/text3"
+                    app:layout_constraintLeft_toLeftOf="@id/text3"
+                    app:layout_constraintRight_toRightOf="@id/text3"
+                    >
                     <EditText
                         android:id="@+id/input"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:autoSizeTextType="uniform"
+                        android:maxLines="1"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/send"
-                    android:layout_width="229dp"
-                    android:layout_height="38dp"
-                    android:layout_below="@id/inlayout"
-                    android:layout_marginTop="15dp"
-                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/listen_button"
                     android:text="SEND TEXT TO SayNc DEVICE"
                     android:textColor="@color/white"
-                    android:gravity="center"/>
+                    app:layout_constraintTop_toBottomOf="@id/inlayout"
+                    app:layout_constraintLeft_toLeftOf="@id/inlayout"
+                    app:layout_constraintRight_toRightOf="@id/inlayout"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="10dp"
 
-            </RelativeLayout>
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="380dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/card"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/dropperbg"
+            android:background="@drawable/bordor"
             android:drawableRight="@android:drawable/arrow_down_float"
             android:drawablePadding="16dp"
-            android:hint="Language"
+            android:hint="Languages"
             android:padding="12dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            android:layout_marginTop="20dp"
+            android:maxLines="1"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintLeft_toLeftOf="@id/card"
+            app:layout_constraintRight_toRightOf="@id/card"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/RL"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/textView">
         <TextView
             android:id="@+id/text4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_below="@id/textView"
             android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
             android:text="Brightness :"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="14dp"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintLeft_toLeftOf="@id/textView"
+            app:layout_goneMarginTop="5dp"
+            />
 
-            <com.google.android.material.slider.Slider
-                android:id="@+id/seekbar_Default"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="8dp"
-                android:layout_toRightOf="@id/text4" />
-        </RelativeLayout>
+        <SeekBar
+            android:id="@+id/seekbar_Default"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/text4"
+            app:layout_constraintBottom_toBottomOf="@id/text4"
+            app:layout_constraintLeft_toRightOf="@id/text4"
+            app:layout_constraintRight_toRightOf="parent"
+            android:progress="50"
+            android:progressTint="@color/white"
+            android:thumb="@drawable/thumb"
+            android:progressBackgroundTint="@color/white"
 
+            />
 
-        <RelativeLayout
-            android:id="@+id/R2"
+        <TextView
+            android:id="@+id/text5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/RL">
+            android:layout_below="@id/textView"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="LED Duration :"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            app:layout_constraintTop_toBottomOf="@id/text4"
+            app:layout_constraintLeft_toLeftOf="@id/textView"
+            />
+        <com.google.android.material.slider.Slider
+            android:id="@+id/seekbar_Default2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:valueFrom="0"
+            android:valueTo="12"
+            android:stepSize="2"
+            android:layout_toRightOf="@id/text5"
+            app:layout_constraintTop_toTopOf="@+id/text5"
+            app:layout_constraintBottom_toBottomOf="@id/text5"
+            app:layout_constraintLeft_toRightOf="@id/text4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:thumbRadius="5dp"
+            />
 
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="LED Duration:"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:textSize="17dp" />
 
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/seekbar_Default2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:valueFrom="0"
-                android:valueTo="12"
-                android:stepSize="2"
-                android:layout_toRightOf="@id/text5" />
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/text6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/R2">
+            android:text="Enable real-time speech:"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:layout_constraintTop_toBottomOf="@id/text5"
+            app:layout_constraintLeft_toLeftOf="@id/text5"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            />
 
-            <TextView
-                android:id="@+id/text6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:text="Enable real-time speech:"
-                android:textColor="@color/white"
-                android:textSize="17dp" />
-
-            <Switch
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
-                android:layout_centerVertical="true" />
-            </RelativeLayout>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/text6"
+            app:layout_constraintBottom_toBottomOf="@id/text6"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="20dp"
+            />
 
 
-    </RelativeLayout>
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
